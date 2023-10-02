@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+        <link rel="stylesheet" href="/static/css/profile.css">
+        <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+    <title>Document</title>
+</head>
+<body>
+    <%- include('../partials/ProfileHeader') %>
+
+
+    <div class="header__wrapper mt-0">
+        <header></header>
+        <div class="cols__container">
+          <div class="left__col">
+            <div class="img__container">
+              <% if (user.profileImage==="null"){ %>
+              
+              <img src="/static/images/placeholder.png" alt="profile image" />
+              <% }else { %><img src="<%= user.profileImage %>" alt="profile image" />
+              <% }%>
+              <span></span>
+            </div>
+            <h2>Welcome, <%= user.name %></h2>
+            <p>UX/UI Designer</p>
+            <p><%= user.email %></p>
+  
+            <ul class="about">
+              <li><span><%= user.blogs.length %></span>Blogs Created</li>
+              <li><span><% let len=0;
+                 user.blogs.forEach(blog=>
+                  {len+=blog.likes.length})%> <%= len %></span>Blog Likes</li>
+              <li><span>200,543</span>Attraction</li>
+            </ul>
+  
+            <div class="content">
+              <p>
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aliquam
+                erat volutpat. Morbi imperdiet, mauris ac auctor dictum, nisl
+                ligula egestas nulla.
+              </p>
+  
+              <ul>
+                <li><i class="fab fa-twitter"></i></li>
+                <i class="fab fa-pinterest"></i>
+                <i class="fab fa-facebook"></i>
+                <i class="fab fa-dribbble"></i>
+              </ul>
+            </div>
+          </div>
+          <div class="right__col">
+            <nav>
+              <ul>
+                <li><a href="#profile-section">Profile</a></li>
+                <li><a href="#blogs-section">Your Blogs</a></li>
+                <li><a href="#Allblogs-section">Go To All Blogs</a></li>
+                <li><a href="">about</a></li>
+              </ul>
+              <button>Follow</button>
+            </nav>
+  
+            <div class="photos">
+              <% user.blogs.forEach(blog=> { %>
+                
+              <img src="<%= blog.blogImage %>" alt="blog image" />
+              
+              <% }); %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <!-- User's Blogs Section -->
+    
+
+    <h2 class="text-bg-dark">Your Blogs</h2>
+    
+    
+      
+        <section id="blogs-section">
+        <div class="row">
+          <% if (user.blogs.length>0){ %>
+            <% user.blogs.forEach(blog=> { %>
+              <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 col-xl-3">
+  
+                <div class="tm-content-box">
+                  <img src="<%= blog.blogImage %>" alt="Image" class="tm-margin-b-20 img-fluid">
+                  <h4 class="tm-margin-b-20 tm-gold-text">
+                  Title:  <%= blog.title %>  
+                  </h4>
+                  <p class="tm-margin-b-20"> Created At : <%= blog.createdAt.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true }) %></p>
+
+                  <a href="/auth/blogs/<%= blog._id %>/detail" class="btn btn-dark text-uppercase mb-1" >Read More</a>
+                  <a href="/auth/editblog"" class="btn btn-success text-uppercase mb-1" >Edit Blog</a>
+                  
+  
+                </div>
+  
+              </div>
+          
+              <% }); } else {%>  
+  
+  <h2>You have Not Uploaded Any Blogs Yet.</h2> <% }%>
+  
+  
+  
+          </div>
+        </section>
+       
+  
+        <section id="Allblogs-section ">
+          <h1 class="text-bg-dark " >All Blogs</h1>
+        <div class="row">
+            <% blogs.forEach(blog=> { %>
+              <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 col-xl-3">
+  
+                <div class="tm-content-box mx-1  border p-3" >
+                  <div>
+                    <img src=" <%= blog.blogImage %>" alt="Image" class="tm-margin-b-20 img-fluid"  style="max-width: 250px; max-height: 250px;">
+                    <h4 class="tm-margin-b-20 tm-gold-text">
+                    Title:  <%= blog.title %>
+                    </h4>
+                    <p class="tm-margin-b-20"> Created At : <%= blog.createdAt.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true }) %></p>
+                  </div>
+               <div class="d-flex ">
+                     
+                    <form action="/auth/blogs/<%= blog._id %>/like" method="POST">
+                      <button type="submit" class="btn btn-primary"> <i class="uil uil-thumbs-up"></i><small> <%= blog.likes.length %></small></button>
+                    </form>
+                
+                   
+                    <a href="/auth/blogs/<%= blog._id %>/detail" class="btn btn-dark text-uppercase mb-1 ms-1" >Read More</a>
+                    
+                  </div>
+                  </div>
+  
+              </div>
+              <% }); %>
+  
+  
+  
+  
+  
+          </div>
+        </section>
+
+    <%- include('../partials/Footer') %>
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+    
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+    
+                if (targetElement) {
+                    // Scroll smoothly to the target section
+                    window.scrollTo({
+                        top: targetElement.offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+    
+</body>
+
+</html>

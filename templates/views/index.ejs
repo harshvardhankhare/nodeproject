@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv='cache-control' content='no-cache'> 
+<meta http-equiv='expires' content='0'> 
+<meta http-equiv='pragma' content='no-cache'>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/static/css/main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="/static/css/newblog.css">
+  <!-- <link rel="stylesheet" href="styles.css" /> -->
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+  
+  <title>SAAS</title>
+  <style>
+    body {
+    
+      
+      a {
+      text-decoration: none;
+    }
+    }
+    a {
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body style="background-color:#121212;
+color: white;
+transition: background-color 0.3s, color 0.3s;" >
+  <!-- 
+    white-#f5f5f7
+    gray-#424245
+    silver-#e6e6e6
+
+ -->
+
+  <%- include('../partials/Header') %>
+
+  <section class="home ">
+    <img class="video-slide active " src="/static/images/photo1.avif" alt="">
+    <!-- <video class="video-slide active " src="/static/videos/161071 (1080p).mp4" autoplay muted loop></video> -->
+<img class="video-slide " src="/static/images/photo2.avif" alt="">
+<img class="video-slide " src="https://images.unsplash.com/photo-1683009427660-b38dea9e8488?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwcm9maWxlLXBhZ2V8MTV8fHxlbnwwfHx8fHw%3D&auto=format&fit=crop&w=500&q=60" alt="">
+<img class="video-slide " src="/static/images/premium_photo-1693160054879-4a822f244336.avif" alt="">
+<img class="video-slide " src="https://images.unsplash.com/photo-1694608344824-eec4f8dc3cb8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDQwfDZzTVZqVExTa2VRfHxlbnwwfHx8fHw%3D&auto=format&fit=crop&w=500&q=60" alt="">
+
+    <div class="content active">
+      <h1>WONDERFULL. <br><span>Island</span></h1>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum at ullam rem tempore consequatur, aperiam animi ex, modi minus illo laboriosam libero aspernatur! Voluptates suscipit sequi in. Omnis id animi sint, minus repudiandae dignissimos sequi!</p>
+
+      <a href="#allblogs">Read More</a>
+
+    </div>
+    <div class="content ">
+        <h1>WONDERFULL. <br><span>Island</span></h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum at ullam rem tempore consequatur, aperiam animi ex, modi minus illo laboriosam libero aspernatur! Voluptates suscipit sequi in. Omnis id animi sint, minus repudiandae dignissimos sequi!</p>
+  
+        <a href="#">Read More</a>
+        
+      </div>
+      <div class="content ">
+        <h1>WONDERFULL. <br><span>Island</span></h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum at ullam rem tempore consequatur, aperiam animi ex, modi minus illo laboriosam libero aspernatur! Voluptates suscipit sequi in. Omnis id animi sint, minus repudiandae dignissimos sequi!</p>
+  
+        <a href="#">Read More</a>
+        
+      </div>
+      <div class="content ">
+        <h1>WONDERFULL. <br><span>Island</span></h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum at ullam rem tempore consequatur, aperiam animi ex, modi minus illo laboriosam libero aspernatur! Voluptates suscipit sequi in. Omnis id animi sint, minus repudiandae dignissimos sequi!</p>
+  
+        <a href="#">Read More</a>
+        
+      </div>
+      <div class="content ">
+        <h1>WONDERFULL. <br><span>Island</span></h1>
+        <p >Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum at ullam rem tempore consequatur, aperiam animi ex, modi minus illo laboriosam libero aspernatur! Voluptates suscipit sequi in. Omnis id animi sint, minus repudiandae dignissimos sequi!</p>
+  
+        <a href="#">Read More</a>
+        
+      </div>
+    <div class="media-icons">
+    <a href=''><i class="uil uil-instagram"></i> </a>
+      <a href="#"><i class="uil uil-linkedin"></i></a>
+      <a href="#"><i class="uil uil-twitter "></i></a>
+      
+    </div>
+    <div class="slider-navigation">
+        <div class="nav-btn active"></div>
+        <div class="nav-btn"></div>
+        <div class="nav-btn"></div>
+        <div class="nav-btn"></div>
+        <div class="nav-btn"></div>
+    </div>
+        </section>
+
+
+        
+        <button id="toggleButton" style=" padding: 10px 20px;
+        background-color: white;
+        color: black;
+        border: none;
+        cursor: pointer;">Toggle Background</button>
+ 
+
+        <section class="blog-posts ">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-8">
+                <div class="all-blog-posts">
+                  <div class="row">
+                    <% blogs.forEach(blog=> { %>
+                    <div class="col-lg-12">
+                      <div class="blog-post">
+                        <div class="blog-thumb">
+                          <img src="<%= blog.blogImage %>"  alt="">
+                        </div>
+                        <div class="down-content">
+                          <span>Lifestyle</span>
+                          <a href="/blogs/<%= blog._id %>"><h4> <%= blog.title %></h4></a>
+                          <ul class="post-info">
+                            <li><a href="#"><%= blog.author.name %></a></li>
+                            <li><a href="#"><%= blog.createdAt.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true }) %></a></li>
+                            <li> <form action="/auth/blogs/<%= blog._id %>/like" method="POST">
+                              <button type="submit" class="btn btn-secondary btn-sm"> <i class="uil uil-thumbs-up"></i><small> <%= blog.likes.length %></small></button>
+                            </form></li>
+                            <!-- <form action="/auth/blogs/<%= blog._id %>/like" method="POST">
+                              <button type="submit" class="btn btn-primary"> <i class="uil uil-thumbs-up"></i><small> <%= blog.likes.length %></small></button>
+                            </form> -->
+                          </ul>
+                          <p><%= blog.preview %> </p>
+                          <div class="post-options">
+                            <div class="row">
+                              <div class="col-6">
+                                <ul class="post-tags">
+                                  <li><i class="fa fa-tags"></i></li>
+                                  <a href="/blogs/<%= blog._id %>"class="btn btn-secondary btn-sm" >Read More</a>
+                                  <li><a href="#">Beauty</a>,</li>
+                                  <li><a href="#">Nature</a></li>
+                                </ul>
+                              </div>
+                              <div class="col-6">
+                                <ul class="post-share">
+                                  <li><i class="fa fa-share-alt"></i></li>
+                                  <li><a href="#">Facebook</a>,</li>
+                                  <li><a href="#"> Twitter</a></li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <% }); %>
+
+
+                    <div class="col-lg-12">
+                      <div class="blog-post">
+                        <div class="blog-thumb">
+                          <img src="static/images/siyaram.PNG" alt="">
+                        </div>
+                        <div class="down-content">
+                          <span>Healthy</span>
+                          <a href="post-details.html"><h4>Etiam id diam vitae lorem dictum</h4></a>
+                          <ul class="post-info">
+                            <li><a href="#">Admin</a></li>
+                            <li><a href="#">May 24, 2020</a></li>
+                            <li><a href="#">36 Comments</a></li>
+                          </ul>
+                          <p>You can support us by contributing a little via PayPal. Please contact <a rel="nofollow" href="https://templatemo.com/contact" target="_parent">TemplateMo</a> via Live Chat or Email. If you have any question or feedback about this template, feel free to talk to us. Also, you may check other CSS templates such as <a rel="nofollow" href="https://templatemo.com/tag/multi-page" target="_parent">multi-page</a>, <a rel="nofollow" href="https://templatemo.com/tag/resume" target="_parent">resume</a>, <a rel="nofollow" href="https://templatemo.com/tag/video" target="_parent">video</a>, etc.</p>
+                          <div class="post-options">
+                            <div class="row">
+                              <div class="col-6">
+                                <ul class="post-tags">
+                                  <li><i class="fa fa-tags"></i></li>
+                                  <li><a href="#">Best Templates</a>,</li>
+                                  <li><a href="#">TemplateMo</a></li>
+                                </ul>
+                              </div>
+                              <div class="col-6">
+                                <ul class="post-share">
+                                  <li><i class="fa fa-share-alt"></i></li>
+                                  <li><a href="#">Facebook</a>,</li>
+                                  <li><a href="#">Twitter</a></li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-12">
+                      <div class="blog-post">
+                        <div class="blog-thumb">
+                          <img src="static/images/siyaram.PNG" alt="">
+                        </div>
+                        <div class="down-content">
+                          <span>Fashion</span>
+                          <a href="post-details.html"><h4>Donec tincidunt leo nec magna</h4></a>
+                          <ul class="post-info">
+                            <li><a href="#">Admin</a></li>
+                            <li><a href="#">May 14, 2020</a></li>
+                            <li><a href="#">48 Comments</a></li>
+                          </ul>
+                          <p>Nullam at quam ut lacus aliquam tempor vel sed ipsum. Donec pellentesque tincidunt imperdiet. Mauris sit amet justo vulputate, cursus massa congue, vestibulum odio. Aenean elit nunc, gravida in erat sit amet, feugiat viverra leo. Phasellus interdum, diam commodo egestas rhoncus, turpis nisi consectetur nibh, in vehicula eros orci vel neque.</p>
+                          <div class="post-options">
+                            <div class="row">
+                              <div class="col-6">
+                                <ul class="post-tags">
+                                  <li><i class="fa fa-tags"></i></li>
+                                  <li><a href="#">HTML CSS</a>,</li>
+                                  <li><a href="#">Photoshop</a></li>
+                                </ul>
+                              </div>
+                              <div class="col-6">
+                                <ul class="post-share">
+                                  <li><i class="fa fa-share-alt"></i></li>
+                                  <li><a href="#">Facebook</a>,</li>
+                                  <li><a href="#">Twitter</a></li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-12">
+                      <div class="main-button">
+                        <a href="blog.html">View All Posts</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <div class="sidebar">
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div class="sidebar-item search">
+                        <form id="search_form"role="search" action="/search" method="get">
+                          <input class="searchText" placeholder="type to search..." autocomplete="on" name="search" type="search"  aria-label="Search">
+                        </form>
+                      </div>
+                    </div>
+                    <div class="col-lg-12">
+                      <div class="sidebar-item recent-posts">
+                        <div class="sidebar-heading">
+                          <h2>Recent Posts</h2>
+                        </div>
+                        <div class="content">
+                          <ul>
+                            <li><a href="post-details.html">
+                              <h5>Vestibulum id turpis porttitor sapien facilisis scelerisque</h5>
+                              <span>May 31, 2020</span>
+                            </a></li>
+                            <li><a href="post-details.html">
+                              <h5>Suspendisse et metus nec libero ultrices varius eget in risus</h5>
+                              <span>May 28, 2020</span>
+                            </a></li>
+                            <li><a href="post-details.html">
+                              <h5>Swag hella echo park leggings, shaman cornhole ethical coloring</h5>
+                              <span>May 14, 2020</span>
+                            </a></li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-12">
+                      <div class="sidebar-item categories">
+                        <div class="sidebar-heading">
+                          <h2>Categories</h2>
+                        </div>
+                        <div class="content">
+                          <ul>
+                            <li><a href="#">- Nature Lifestyle</a></li>
+                            <li><a href="#">- Awesome Layouts</a></li>
+                            <li><a href="#">- Creative Ideas</a></li>
+                            <li><a href="#">- Responsive Templates</a></li>
+                            <li><a href="#">- HTML5 / CSS3 Templates</a></li>
+                            <li><a href="#">- Creative &amp; Unique</a></li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-12">
+                      <div class="sidebar-item tags">
+                        <div class="sidebar-heading">
+                          <h2>Tag Clouds</h2>
+                        </div>
+                        <div class="content">
+                          <ul>
+                            <li><a href="#">Lifestyle</a></li>
+                            <li><a href="#">Creative</a></li>
+                            <li><a href="#">HTML5</a></li>
+                            <li><a href="#">Inspiration</a></li>
+                            <li><a href="#">Motivation</a></li>
+                            <li><a href="#">PSD</a></li>
+                            <li><a href="#">Responsive</a></li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <%- include('../partials/Footer') %>
+
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/110/three.min.js'></script>
+      <script src="../jq/jquery.js" type="text/javascript"></script>
+      <script src="/static/mainjs/main.js"></script>
+
+</body>
+
+</html>

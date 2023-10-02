@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Document</title>
+</head>
+<body>
+    
+ 
+    <%- include('../partials/ProfileHeader') %>
+  
+    <div class="container mt-5 pt-5">
+        <h1 class="text-center">Edit Your Blog Posts</h1>
+        <% if (user.blogs.length === 0) { %>
+            <p class="text-center">You have no blog posts yet.</p>
+        <% } else { %>
+            <ul class="list-group">
+                <% user.blogs.forEach(blog => { %>
+                    <li class="list-group-item">
+                        <div class="row">
+                            <!-- Blog Image -->
+                            <div class="col-md-3">
+                                <img src="<%= blog.blogImage %>" alt="Blog Image" class="img-fluid">
+                            </div>
+                            <!-- Blog Content -->
+                            <div class="col-md-9">
+                                <h3><%= blog.title %></h3>
+                                <p><%= blog.content %></p>
+                                <div class="text-right">
+                                    <a href="/auth/editblog/<%= blog._id %>/edit" class="btn btn-primary btn-sm">Edit</a>
+                                    <form action="/auth/editblog/<%= blog._id %>/delete" method="POST" class="d-inline">
+                                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                <% }); %>
+            </ul>
+        <% } %>
+
+        <!-- Add a link to create a new blog post if needed -->
+        <div class="text-center mt-4">
+            <a href="/auth/profile/Create-Blog" class="btn btn-success">Create New Blog</a>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

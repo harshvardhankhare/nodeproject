@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <%- include('../partials/Header') %>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-4">
+        <!-- Profile Header Section -->
+        <div class="text-center">
+            <!-- Placeholder for the profile image (fully round) -->
+            <img src="profile-image.jpg" alt="Profile Image" class="rounded-circle" width="150">
+            <h2>User Name</h2>
+            <p>Email: user@example.com</p>
+            <p>Total Blog Posts: 10</p>
+        </div>
+        
+        <!-- User Blogs Section -->
+        <div class="mt-4">
+            <h3>Your Blogs</h3>
+            <div class="card-deck">
+                <!-- Replace these cards with data from the user's blogs -->
+                <div class="card">
+                    <img src="blog1-image.jpg" class="card-img-top" alt="Blog 1 Image">
+                    <div class="card-body">
+                        <h5 class="card-title">Blog 1 Title</h5>
+                        <p class="card-text">Date Created: Jan 1, 2023</p>
+                        <a href="#" class="btn btn-primary">Read More</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="blog2-image.jpg" class="card-img-top" alt="Blog 2 Image">
+                    <div class="card-body">
+                        <h5 class="card-title">Blog 2 Title</h5>
+                        <p class="card-text">Date Created: Feb 15, 2023</p>
+                        <a href="#" class="btn btn-primary">Read More</a>
+                    </div>
+                </div>
+                <!-- Add more blog cards here -->
+            </div>
+        </div>
+
+        <!-- All Blogs Section -->
+        <div class="mt-4">
+            <h3>All Blogs</h3>
+            <div class="card-deck">
+                <!-- Replace these cards with data from all blogs -->
+                <div class="card">
+                    <img src="blogA-image.jpg" class="card-img-top" alt="Blog A Image">
+                    <div class="card-body">
+                        <h5 class="card-title">Blog A Title</h5>
+                        <p class="card-text">Date Created: Mar 10, 2023</p>
+                        <a href="#" class="btn btn-primary">Read More</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="blogB-image.jpg" class="card-img-top" alt="Blog B Image">
+                    <div class="card-body">
+                        <h5 class="card-title">Blog B Title</h5>
+                        <p class="card-text">Date Created: Apr 5, 2023</p>
+                        <a href="#" class="btn btn-primary">Read More</a>
+                    </div>
+                </div>
+                <!-- Add more blog cards here -->
+            </div>
+        </div>
+    </div>
+    <%- include('../partials/Footer') %>
+    <!-- Include Bootstrap JS and jQuery (optional) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    
+</body>
+</html>

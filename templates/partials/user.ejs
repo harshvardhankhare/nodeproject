@@ -1,0 +1,34 @@
+<!-- views/user.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+</head>
+<body>
+    <h1>User Details</h1>
+    <h2><%= user.name %></h2>
+    <p>Email: <%= user.email %></p>
+    <p>Password: <%= user.password %></p>
+    <!-- You can add more user details here -->
+    <a href="/">Back to User List</a>
+    <h3>Blog Posts</h3>
+   
+        <ul>
+            <% user.blogs.forEach((blog) => { %>
+              <li>
+                <h4><%= blog.title %></h4>
+                <p><%= blog.content %></p>
+              </li>
+            <% }); %>
+          </ul>
+       
+    <h3>Create a New Blog Post</h3>
+    <form action="/user/<%= user._id %>/create-blog" method="POST">
+      <input type="text" name="title" placeholder="Blog Title" required>
+      <textarea name="content" placeholder="Blog Content" required></textarea>
+      <button type="submit">Create</button>
+    </form>
+</body>
+</html>
