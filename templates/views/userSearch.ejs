@@ -7,13 +7,28 @@
 </head>
 <body>
   <%- include('../partials/ProfileHeader') %>
-    <h1 class="mt-5 pt-5">search results</h1>
+   
     
-<ul>
-    <% blogs.forEach(blog => { %>
-      <li><a href="/blogs/<%= blog._id %>"><%= blog.title %></a></li>
-    <% }); %>
-  </ul>
+
+  <div class="container mt-5 pt-5">
+    <h1 class="mt-4">Search Results</h1>
+    <div class=" mt-4 row ">
+        <% blogs.forEach(blog => { %>
+            
+                
+                <div class="card "  style="width: 18rem;">
+                  <img src="<%= blog.blogImage %>" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title"><%= blog.title %></h5>
+                    
+                    <a href="/blogs/<%= blog._id %>" class="btn btn-primary">Read</a>
+                  </div>
+                </div>
+            
+        <% }); %>
+              </div>
+    <a href="/auth/profile" class="btn btn-primary mt-4">Back to Profile-Page</a>
+</div>
 
 </body>
 </html>

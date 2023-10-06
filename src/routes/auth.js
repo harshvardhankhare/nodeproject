@@ -245,7 +245,7 @@ router.get('/profile/userSearch', isAuthenticated, async (req, res) => {
       } else {
         // If no search query is provided, you can handle it accordingly (e.g., display a message)
         // You can redirect the user back to the home page or display a message indicating no search query.
-        return res.redirect('/');
+        return res.redirect('/auth/profile');
       }
       // res.render('searchResults', { blogs });
       res.render('userSearch', { user: req.user, blogs });
@@ -350,11 +350,16 @@ function generatePreview(content) {
 }
 router.get('/allblogs', isAuthenticated, async (req, res) => {
   try {
-    const user = req.user;
+    
+      const user = await User.findById(req.user._id).populate('blogs'); // Populate the 'blogs' field with actual blog data
+      const blogs = await Blog.find({}).populate('author');
+  
+      
+   
     if (!user) {
       res.redirect('auth/login')
     }
-    res.render('allblogs')
+    res.render('allblogs', { user, blogs })
   } catch (err) {
     console.log(err)
   }
