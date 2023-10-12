@@ -37,7 +37,9 @@ app.get("/", async (req, res) => {
 
   try {
     const blogs = await Blog.find({}).populate('author');
-    res.render('index', { blogs });
+    const recentPost= await Blog.find().sort({ createdAt: -1 }).limit(10).populate('author');
+    
+    res.render('index', { blogs,recentPost });
   } catch (err) {
     console.error(err);
     res.status(500).send('Server Error');

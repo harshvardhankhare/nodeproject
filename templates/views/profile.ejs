@@ -8,12 +8,16 @@
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
         <link rel="stylesheet" href="/static/css/profile.css">
         <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
-    <title>Document</title>
+    <title>Harsh Dev</title>
 </head>
 <body>
     <%- include('../partials/ProfileHeader') %>
-
-
+   
+    <div class="alert alert-success mt-5 pt-5" id="myAlert">
+    Login Succesfully
+    </div>
+  
+    
     <div class="header__wrapper mt-0">
         <header></header>
         <div class="cols__container">
@@ -22,6 +26,7 @@
               <% if (user.profileImage==="null"){ %>
               
               <img src="/static/images/placeholder.png" alt="profile image" />
+             
               <% }else { %><img src="<%= user.profileImage %>" alt="profile image" />
               <% }%>
               <span></span>
@@ -58,7 +63,7 @@
               <ul>
                 <li><a href="#profile-section">Profile</a></li>
                 <li><a href="#blogs-section">Your Blogs</a></li>
-                <li><a href="#Allblogs-section">Go To All Blogs</a></li>
+                <li><a href="/auth/allblogs">Go To All Blogs</a></li>
                 <li><a href="">about</a></li>
               </ul>
               <button>Follow</button>
@@ -74,7 +79,7 @@
           </div>
         </div>
       </div>
-
+     
     <!-- User's Blogs Section -->
     
 
@@ -167,6 +172,18 @@
                 }
             });
         });
+      
+  // Get the alert element by its ID
+  var alert = document.getElementById("myAlert");
+
+  // Function to hide the alert
+  function hideAlert() {
+    alert.style.display = "none";
+  }
+
+  // Set a timeout to hide the alert after 2 seconds (2000 milliseconds)
+  setTimeout(hideAlert, 1000);
+
     </script>
     
 </body>
